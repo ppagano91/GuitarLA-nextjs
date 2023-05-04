@@ -1,0 +1,12 @@
+.navegacion a{
+    color: var(--white);
+    display: flex;    
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    transition-property: background-color;
+    transition-duration: 500ms;
+    /* gap: 2rem; */
+}
