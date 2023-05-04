@@ -5,25 +5,17 @@ import styles from "@/styles/Footer.module.css";
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="contenedor">
-        <Link href="/" legacyBehavior>
-          <a>
-            <Image
-              src="/img/logo.svg"
-              width={300}
-              height={40}
-              alt={"Imagen logo"}
-            />
-          </a>
-        </Link>
+    <footer className={styles.footer}>
+      <div className={`contenedor ${styles.contenido}`}>
         <nav className={styles.navegacion}>
           <Link href="/">Inicio</Link>
           <Link href="/nosotros">Nosotros</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/tienda">Tienda</Link>
         </nav>
-        <p>Todos los derechos reservados {new Date().getFullYear()}</p>
+        <p className={styles.copyright}>
+          Todos los derechos reservados {new Date().getFullYear()}
+        </p>
       </div>
     </footer>
   );
