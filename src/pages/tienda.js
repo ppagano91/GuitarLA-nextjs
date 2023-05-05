@@ -14,7 +14,9 @@ const Tienda = ({ guitarras }) => {
       >
         <main className="contenedor">
           <h2 className="heading">Nuestra Colección</h2>
-          <ListadoGuitarras guitarras={guitarras} />
+          {guitarras.map((guitarra) => (
+            <Guitarra key={guitarra.id} guitarra={guitarra.attributes} />
+          ))}
         </main>
       </Layout>
     </>
