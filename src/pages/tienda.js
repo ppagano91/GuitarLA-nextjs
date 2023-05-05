@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "@/components/layout";
-import ListadoGuitarras from "@/components/listado-guitarras";
+import Guitarra from "@/components/guitarra";
 
 const Tienda = ({ guitarras }) => {
   console.log(guitarras);
