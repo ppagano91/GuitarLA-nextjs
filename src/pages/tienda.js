@@ -14,7 +14,7 @@ const Tienda = ({ guitarras }) => {
       >
         <main className="contenedor">
           <h2 className="heading">Nuestra Colección</h2>
-          <ListadoGuitarras />
+          <ListadoGuitarras guitarras={guitarras} />
         </main>
       </Layout>
     </>
@@ -23,11 +23,18 @@ const Tienda = ({ guitarras }) => {
 
 export default Tienda;
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//   const respuesta = await fetch(
+//     `${process.env.API_URL}/guitarras?populate=imagen`
+//   );
+//   const { data: guitarras } = await respuesta.json();
+//   return { props: { guitarras } };
+// }
+
+export async function getServerSideProps() {
   const respuesta = await fetch(
     `${process.env.API_URL}/guitarras?populate=imagen`
   );
   const { data: guitarras } = await respuesta.json();
-  // console.log(data);
   return { props: { guitarras } };
 }
