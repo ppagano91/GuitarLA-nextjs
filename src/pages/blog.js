@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "@/components/layout";
 import Post from "@/components/post";
+import styles from "@/styles/Grid.module.css";
 
 const Blog = ({ posts }) => {
   console.log(posts);
@@ -12,7 +13,7 @@ const Blog = ({ posts }) => {
       >
         <main className="contenedor">
           <h2 className="heading">Blog</h2>
-          <div className="grid">
+          <div className={styles.grid}>
             {posts?.map((post) => (
               <Post key={post.id} post={post.attributes} />
             ))}

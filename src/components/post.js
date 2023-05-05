@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { formatearFecha } from "../../utils/helpers";
+
+import styles from "@/styles/Blog.module.css";
 
 const Post = ({ post }) => {
   const { titulo, contenido, imagen, url, publishedAt } = post;
@@ -12,11 +15,13 @@ const Post = ({ post }) => {
         height={400}
         alt={`Imagen Post ${titulo}`}
       />
-      <div>
+      <div className={styles.contenido}>
         <h3>{titulo}</h3>
-        <p>{publishedAt}</p>
-        <p>{contenido}</p>
-        <Link href={`/blog/${url}`}>Ver Post</Link>
+        <p className={styles.fecha}>{formatearFecha(publishedAt)}</p>
+        <p className={styles.resumen}>{contenido}</p>
+        <Link href={`/blog/${url}`} legacyBehavior>
+          <a className={styles.enlace}>Ver Post</a>
+        </Link>
       </div>
     </article>
   );
