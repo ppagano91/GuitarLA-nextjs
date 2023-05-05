@@ -1,8 +1,27 @@
+import Image from "next/image";
 import React from "react";
+import Layout from "@/components/layout";
+import styles from "@/styles/Guitarras.module.css";
 
 const Producto = ({ guitarra }) => {
-  console.log(guitarra);
-  return <div>Producto</div>;
+  const { nombre, precio, descripcion, imagen } = guitarra[0].attributes;
+  return (
+    <Layout title={`Guitarra ${nombre}`}>
+      <div className={styles.guitarra}>
+        <Image
+          src={imagen.data.attributes.url}
+          width={600}
+          height={400}
+          alt={`Imagen Guitarra ${nombre}`}
+        />
+        <div className={styles.contenido}>
+          <h3>{nombre}</h3>
+          <p className={styles.descripcion}>{descripcion}</p>
+          <p className={styles.precio}>${precio}</p>
+        </div>
+      </div>
+    </Layout>
+  );
 };
 
 export default Producto;

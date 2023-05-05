@@ -20,6 +20,7 @@
     -webkit-line-clamp: 6;
     overflow: hidden;
     font-size: 1.8rem;
+    text-align: justify;
 }
 .precio {
     color: var(--primary);
