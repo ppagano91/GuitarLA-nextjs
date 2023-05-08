@@ -46,6 +46,16 @@ const Header = () => {
           >
             Tienda
           </Link>
+          <Link href="/carrito" legacyBehavior>
+            <a>
+              <Image
+                width={30}
+                height={25}
+                src="/img/carrito.png"
+                alt="Imagen carrito"
+              />
+            </a>
+          </Link>
         </nav>
       </div>
     </header>
