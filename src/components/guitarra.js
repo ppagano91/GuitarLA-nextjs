@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { formatearPrecio } from "../../utils/helpers";
+
 import styles from "@/styles/Guitarras.module.css";
 
 const Guitarra = ({ guitarra }) => {

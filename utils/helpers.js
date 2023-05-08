@@ -6,7 +6,7 @@ export const formatearFecha = (fecha) => {
 export const formatearPrecio = (precio) => {
   const formatter = new Intl.NumberFormat("es-ES", {
     style: "currency",
-    currency: "USD",
+    currency: "ARS",
   });
   return formatter.format(precio);
 };

@@ -20,8 +20,11 @@
     -webkit-line-clamp: 4;
     overflow: hidden;
 }
-.texto {
-    white-space: pre-wrap;
+.texto {    
+    text-align: justify;
+    /* white-space: pre-wrap; */
+    white-space: pre-line;
+    
 }
 
 .mt-3 {
