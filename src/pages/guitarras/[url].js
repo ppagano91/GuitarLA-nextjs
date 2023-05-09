@@ -1,11 +1,23 @@
-import Image from "next/image";
 import React from "react";
+import { useState } from "react";
+
+import Image from "next/image";
 import Layout from "@/components/layout";
 import styles from "@/styles/Guitarras.module.css";
 
 const CANTIDAD_GUITARRAS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const Producto = ({ guitarra }) => {
+  const [cantidad, setCantidad] = useState(0);
+
   const { nombre, precio, descripcion, imagen } = guitarra[0].attributes;
+
+  const handleSumbit = (e) => {
+    e.preventDefault();
+    if (cantidad < 1) {
+      alert("Debe seleccionar una cantidad");
+      return;
+    }
+  };
   return (
     <Layout title={`Guitarra ${nombre}`}>
       <div className={styles.guitarra}>
@@ -20,9 +32,12 @@ const Producto = ({ guitarra }) => {
           <p className={styles.descripcion}>{descripcion}</p>
           <p className={styles.precio}>${precio}</p>
 
-          <form htmlFor="cantidad" className={styles.formulario}>
-            <label>Cantidad</label>
-            <select id="cantidad">
+          <form className={styles.formulario} onSubmit={handleSumbit}>
+            <label htmlFor="cantidad">Cantidad</label>
+            <select
+              id="cantidad"
+              onChange={(e) => setCantidad(parseInt(e.target.value))}
+            >
               <option value="0">-- Seleccione --</option>
               {CANTIDAD_GUITARRAS?.map((cantidad) => (
                 <option value={cantidad} key={cantidad}>
