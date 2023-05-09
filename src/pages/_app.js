@@ -2,7 +2,7 @@ import { useState } from "react";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
-  const [carrito, setCarrito] = useState({});
+  const [carrito, setCarrito] = useState([]);
 
   const agregarCarrito = (guitarra) => {
     // Comprobar si la guitarra ya esta en el carrito...
