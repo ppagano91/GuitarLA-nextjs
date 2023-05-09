@@ -26,14 +26,14 @@ const Carrito = ({ carrito }) => {
                       alt={producto.nombre}
                     />
                   </div>
-                  <div className={styles.contenido}>
+                  <div>
                     <p className={styles.nombre}>{producto.nombre}</p>
                     <p className={styles.precio}>
-                      $<span>{producto.precio}</span>
+                      Precio Unidad: <span>${producto.precio}</span>
                     </p>
                     <p className={styles.subtotal}>
-                      Subtotal: $
-                      <span>{producto.cantidad * producto.precio}</span>
+                      Subtotal:{""}
+                      <span>${producto.cantidad * producto.precio}</span>
                     </p>
                   </div>
                 </div>
