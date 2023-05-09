@@ -6,7 +6,7 @@ import Layout from "@/components/layout";
 import styles from "@/styles/Guitarras.module.css";
 
 const CANTIDAD_GUITARRAS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const Producto = ({ guitarra }) => {
+const Producto = ({ guitarra, agregarCarrito }) => {
   const [cantidad, setCantidad] = useState(0);
 
   const { nombre, precio, descripcion, imagen } = guitarra[0].attributes;
@@ -17,6 +17,16 @@ const Producto = ({ guitarra }) => {
       alert("Debe seleccionar una cantidad");
       return;
     }
+
+    const guitarraSeleccionada = {
+      id: guitarra[0].id,
+      imagen: imagen.data.attributes.url,
+      nombre,
+      precio,
+      cantidad,
+    };
+
+    agregarCarrito(guitarraSeleccionada);
   };
   return (
     <Layout title={`Guitarra ${nombre}`}>
