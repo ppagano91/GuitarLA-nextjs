@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
 import Layout from "@/components/layout";
 import Image from "next/image";
@@ -8,6 +9,16 @@ import styles from "@/styles/Carrito.module.css";
 const CANTIDAD_GUITARRAS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const Carrito = ({ carrito, actualizarCantidad }) => {
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const calculoTotal = carrito.reduce(
+      (total, producto) => total + producto.precio * producto.cantidad,
+      0
+    );
+    setTotal(calculoTotal);
+  }, [carrito]);
+
   return (
     <Layout title="Carrito de Compras">
       <main className="contenedor">
@@ -65,7 +76,7 @@ const Carrito = ({ carrito, actualizarCantidad }) => {
           </div>
           <aside className={styles.resumen}>
             <h3>Resumen del Pedido</h3>
-            <p>Total a pagar</p>
+            <p>Total a pagar: ${total}</p>
           </aside>
         </div>
       </main>
