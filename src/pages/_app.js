@@ -24,12 +24,6 @@ export default function App({ Component, pageProps }) {
     }
   };
 
-  const eliminarProducto = (id) => {
-    const carritoActualizado = carrito.filter((producto) => producto.id != id);
-    setCarrito(carritoActualizado);
-    window.localStorage.setItem("carrito", JSON.stringify(carrito));
-  };
-
   const actualizarCantidad = (guitarra) => {
     const carritoActualizado = carrito.map((guitarraState) => {
       if (guitarraState.id === guitarra.id) {
@@ -40,6 +34,13 @@ export default function App({ Component, pageProps }) {
     setCarrito(carritoActualizado);
     window.localStorage.setItem("carrito", JSON.stringify(carrito));
   };
+
+  const eliminarProducto = (id) => {
+    const carritoActualizado = carrito.filter((producto) => producto.id != id);
+    setCarrito(carritoActualizado);
+    window.localStorage.setItem("carrito", JSON.stringify(carrito));
+  };
+
   return (
     <Component
       {...pageProps}

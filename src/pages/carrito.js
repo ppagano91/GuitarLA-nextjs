@@ -5,7 +5,9 @@ import Image from "next/image";
 
 import styles from "@/styles/Carrito.module.css";
 
-const Carrito = ({ carrito }) => {
+const CANTIDAD_GUITARRAS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const Carrito = ({ carrito, actualizarCantidad }) => {
   return (
     <Layout title="Carrito de Compras">
       <main className="contenedor">
@@ -26,8 +28,29 @@ const Carrito = ({ carrito }) => {
                       alt={producto.nombre}
                     />
                   </div>
+
                   <div>
                     <p className={styles.nombre}>{producto.nombre}</p>
+                    <div className={styles.cantidad}>
+                      <p>Cantidad:</p>
+                      <select
+                        id="cantidad"
+                        className={styles.select}
+                        value={producto.cantidad}
+                        onChange={(e) =>
+                          actualizarCantidad({
+                            id: producto.id,
+                            cantidad: parseInt(e.target.value),
+                          })
+                        }
+                      >
+                        {CANTIDAD_GUITARRAS?.map((cantidad) => (
+                          <option value={cantidad} key={cantidad}>
+                            {cantidad}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                     <p className={styles.precio}>
                       Precio Unidad: <span>${producto.precio}</span>
                     </p>
