@@ -21,6 +21,7 @@
     align-items: center;
     padding: 3rem 0;
     border-bottom: 1px solid #cfcfcf;
+    position:relative;
 
 }
 
@@ -62,6 +63,21 @@
 
 .subtotal{
     font-size: 2.2rem;
+}
+
+.eliminar{
+    all:unset;
+    position: absolute;
+    top:3rem;
+    right:1rem;
+    font-weight: 900;
+    padding: 0 0.5rem;  
+}
+
+.eliminar:hover{
+    cursor: pointer;
+    background-color: #F9FAFB;    
+    border-radius: 50%;
 }
 
 

@@ -8,7 +8,7 @@ import styles from "@/styles/Carrito.module.css";
 
 const CANTIDAD_GUITARRAS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const Carrito = ({ carrito, actualizarCantidad }) => {
+const Carrito = ({ carrito, actualizarCantidad, eliminarProducto }) => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
@@ -70,6 +70,14 @@ const Carrito = ({ carrito, actualizarCantidad }) => {
                       <span>${producto.cantidad * producto.precio}</span>
                     </p>
                   </div>
+
+                  <button
+                    className={styles.eliminar}
+                    type="button"
+                    onClick={() => eliminarProducto(producto.id)}
+                  >
+                    X
+                  </button>
                 </div>
               ))
             )}
