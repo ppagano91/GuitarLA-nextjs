@@ -19,6 +19,12 @@ const Carrito = ({ carrito, actualizarCantidad, eliminarProducto }) => {
     setTotal(calculoTotal);
   }, [carrito]);
 
+  const handleDelete = (id) => {
+    if (confirm("¿Estas seguro de eliminar el producto?")) {
+      eliminarProducto(id);
+    }
+  };
+
   return (
     <Layout title="Carrito de Compras">
       <main className="contenedor">
@@ -74,7 +80,7 @@ const Carrito = ({ carrito, actualizarCantidad, eliminarProducto }) => {
                   <button
                     className={styles.eliminar}
                     type="button"
-                    onClick={() => eliminarProducto(producto.id)}
+                    onClick={() => handleDelete(producto.id)}
                   >
                     X
                   </button>
